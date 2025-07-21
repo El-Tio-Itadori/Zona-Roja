@@ -16,22 +16,28 @@
         
         /* Cabecera */
         header {
-            background: linear-gradient(45deg, #ff3366, #cc0033);
-            text-align: center;
+            background-color: #000; /* Fondo negro para la cabecera */
+            text-align: center; /* Centra el contenido del header */
             padding: 1rem;
-            box-shadow: 0 2px 10px rgba(255, 51, 102, 0.5);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil en negro */
             position: relative;
+            display: flex; /* Usamos flexbox para alinear el logo y el subtítulo */
+            align-items: center; /* Centra verticalmente los items */
+            justify-content: center; /* Centra horizontalmente los items */
+            min-height: 100px; /* Aumenta la altura mínima para el logo mediano */
         }
         
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px #000;
+        /* Estilo para el logo que reemplaza al título */
+        .header-main-logo {
+            max-width: 180px; /* Tamaño mediano para el logo principal, ajusta si es necesario */
+            height: auto;
+            display: block; /* Para asegurar que ocupe su propio espacio */
+            margin: 0; /* Elimina márgenes por defecto */
         }
-        
+
         /* Subtítulo */
         .subtitule { 
-            position: absolute;
+            position: absolute; /* Mantenemos absolute para posicionarlo en la esquina */
             bottom: 10px; 
             right: 10px;
             background: rgba(255, 0, 102, 0.7); 
@@ -43,13 +49,15 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
         }
         
-        /* Contenedor de videos - Ahora solo para el único video */
+        /* Contenedor de videos */
         .video-grid {
-            display: flex; /* Cambiado a flex para centrar el único elemento */
-            justify-content: center; /* Centra horizontalmente */
-            align-items: center; /* Centra verticalmente si hay más espacio */
-            min-height: calc(100vh - 150px); /* Ajusta la altura para que el video esté centrado en la pantalla (aproximado) */
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
             padding: 1.5rem;
+            justify-content: center; 
+            align-items: flex-start; 
+            min-height: auto; 
         }
         
         /* Tarjeta de video */
@@ -59,8 +67,9 @@
             overflow: hidden;
             transition: all 0.3s ease;
             border: 1px solid #ff3366;
-            max-width: 400px; /* Limita el ancho de la tarjeta para que no sea demasiado grande */
-            width: 100%; /* Asegura que ocupe el 100% del max-width */
+            max-width: 400px; 
+            width: 100%; 
+            margin: 0 auto; 
         }
         
         .video-card:hover {
@@ -71,7 +80,7 @@
         /* Miniaturas */
         .thumbnail {
             position: relative;
-            height: 220px; /* Aumentado para que la imagen sea más prominente al ser solo una */
+            height: 180px; 
             background: #000;
         }
         
@@ -96,7 +105,7 @@
             text-shadow: 0 0 15px rgba(255, 0, 102, 0.7);
             opacity: 0;
             transition: opacity 0.3s;
-            z-index: 2; /* Para asegurar que esté por encima del botón de censura */
+            z-index: 2; 
         }
         
         .video-card:hover .play-btn {
@@ -108,14 +117,14 @@
             position: absolute;
             bottom: 10px;
             left: 10px;
-            background-color: #00b300; /* Un color verde para destacar */
+            background-color: #00b300; 
             color: white;
             padding: 0.4rem 0.8rem;
             border-radius: 5px;
             font-size: 0.8rem;
             font-weight: bold;
-            z-index: 1; /* Para que esté debajo del botón de play si ambos aparecen al mismo tiempo */
-            opacity: 0.9; /* Siempre visible, pero con un poco de transparencia */
+            z-index: 1; 
+            opacity: 0.9; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             text-transform: uppercase;
         }
@@ -123,20 +132,22 @@
         /* Información del video */
         .video-info {
             padding: 1rem;
-            text-align: center; /* Centrar el texto de la información del video */
+            text-align: center; 
         }
         
         .video-title {
             font-weight: bold;
-            color: #ff6699;
+            color: #ff3366; /* Color rojo para todos los títulos de video */
             margin-bottom: 0.5rem;
-            font-size: 1.3rem; /* Título un poco más grande */
+            font-size: 1.1rem; 
+            /* Se elimina la clase .black ya que ahora todos serán rojos */
+            text-shadow: none; /* Elimina la sombra si la había para el color negro */
         }
         
         .video-meta {
             display: flex;
-            justify-content: center; /* Centrar los metadatos */
-            font-size: 0.9rem; /* Metadatos un poco más grandes */
+            justify-content: center; 
+            font-size: 0.8rem; 
             color: #aaa;
         }
         
@@ -154,22 +165,50 @@
 </head>
 <body>
     <header>
+        <img src="https://files.catbox.moe/fcdjka.png" alt="Zona Roja Logo" class="header-main-logo">
         <div class="subtitule">Hentai y algo más~</div>
-        <h1>ZONA ROJA</h1>
     </header>
     
     <div class="video-grid">
         <div class="video-card">
+            <a href="https://videy.lat/gGLAFt" target="_blank">
+                <div class="thumbnail">
+                    <img src="https://files.catbox.moe/v3h24a.jpg" alt="Nohonara Yuzuka no Himitsu no Haishin 02">
+                    <div class="play-btn">▶</div>
+                </div>
+                <div class="video-info">
+                    <div class="video-title">Nohonara Yuzuka no Himitsu no Haishin 02</div> 
+                    <div class="video-meta">
+                        <span>17 min</span> 
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-card">
+            <a href="https://videy.lat/yXzwdb" target="_blank">
+                <div class="thumbnail">
+                    <img src="https://files.catbox.moe/ps3oy3.jpg" alt="Nohonara Yuzuka no Himitsu no Haishin 01">
+                    <div class="play-btn">▶</div>
+                </div>
+                <div class="video-info">
+                    <div class="video-title">Nohonara Yuzuka no Himitsu no Haishin 01</div> 
+                    <div class="video-meta">
+                        <span>~ Duración</span> 
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-card">
             <a href="https://videy.lat/eSLZ42" target="_blank">
                 <div class="thumbnail">
-                    <img src="https://files.catbox.moe/pl6thy.jpg" alt="Shoujo Ramune 05">
+                    <img src="https://files.catbox.moe/pl6thy.jpg" alt="Tsuma ga Onsen de Circle Nakama 01">
                     <div class="play-btn">▶</div>
                     <div class="uncensored-badge">Sin Censura</div>
                 </div>
                 <div class="video-info">
-                    <div class="video-title">Tsuma ga Onsen de Circle Nakama 01 (Sin Censura) Sub Español 
-                        
-                    </div> 
+                    <div class="video-title">Tsuma ga Onsen de Circle Nakama 01 (Sin Censura) Sub Español</div> 
                     <div class="video-meta">
                         <span>22 min</span>
                     </div>
